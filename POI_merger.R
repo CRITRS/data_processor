@@ -1,0 +1,5 @@
+require(data.table)
+filenames <- list.files(pattern="*.csv")
+files <- lapply(filenames, fread)
+merged_data <- rbindlist(files)
+write.csv(merged_data, file="merged_data_file.csv", row.names=FALSE, na = "")
